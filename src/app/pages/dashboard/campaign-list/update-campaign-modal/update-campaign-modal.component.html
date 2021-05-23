@@ -1,0 +1,10 @@
+<div class="modal-overlay" *ngIf="visible">
+  <div class="textarea-form-container">
+    <div class="textarea-form-wrapper">
+        <input type="text" placeholder="Enter a campaign name" [(ngModel)]="campaign.campaignName"/>
+        <textarea name="description" cols="30" rows="10" placeholder="Enter a campaign description" [(ngModel)]="campaign.campaignDesc"></textarea>
+        <app-button callToAction="Create" (click)="updateCampaign()"></app-button>
+    </div>
+  </div>
+  
+</div>

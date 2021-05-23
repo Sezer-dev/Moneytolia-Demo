@@ -1,0 +1,21 @@
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    position: absolute;
+}
+
+.textarea-form-container {
+    width: 300px;
+    height: 300px;
+}
+
+.textarea-form-wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #e0e0e0;
+}

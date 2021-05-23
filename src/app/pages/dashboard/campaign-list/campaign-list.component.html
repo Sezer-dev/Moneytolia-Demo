@@ -1,0 +1,24 @@
+<app-update-campaign-modal [(visible)]="showModal"></app-update-campaign-modal>
+<div class="campaign-list-container">
+  <div class="filter-campaigns">
+    <input type="text" placeholder="Enter campaign name" [(ngModel)]="searchKeyword" />
+    <div class="sort-campaigns">
+      <select [(ngModel)]="sortBy" id="sort-by-rate">
+        <option value="" selected>Sort By Rate</option>
+        <option value="highToLow">High To Low</option>
+        <option value="lowToHigh">Low To High</option>
+      </select>
+    </div>
+  </div>
+  <div *ngFor="let campaign of campaigns | sortCampaigns : sortBy | filter : searchKeyword " class="campaign">
+    <div>
+      <span>{{ campaign.campaignRate }}</span>
+      <h2 class="campaign-name">{{ campaign.campaignName }}</h2>
+    </div>
+    <p class="campaign-description">{{ campaign.campaignDesc }}</p>
+    <button (click)="likeCampaign(campaign)" >Good</button>
+    <button (click)="dislikeCampaign(campaign)" >Bad</button>
+    <button (click)="updateCampaign(campaign)" >Update</button>
+    <button (click)="deleteCampaign(campaign)" >Delete</button>
+  </div>
+</div>
