@@ -1,7 +1,7 @@
-<div class="textarea-form-container">
-  <div class="textarea-form-wrapper">
-      <input type="text" placeholder="Enter a campaign name" [(ngModel)]="campaign.campaignName"/>
-      <textarea name="description" cols="30" rows="10" placeholder="Enter a campaign description" [(ngModel)]="campaign.campaignDesc"></textarea>
-      <app-button callToAction="Create" (click)="create()"></app-button>
-  </div>
-</div>
+<textarea-form-component
+  [(inputValue)]="campaign.campaignName"
+  [(textareaValue)]="campaign.campaignDesc"
+  ngDefaultControl
+  buttonCallToAction="Create"
+  (buttonClickCallback)="create()"
+></textarea-form-component>
