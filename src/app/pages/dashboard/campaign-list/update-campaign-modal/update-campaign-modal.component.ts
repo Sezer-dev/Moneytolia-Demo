@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Campaign } from '../../inferfaces/campaign';
 
 @Component({
@@ -8,17 +8,21 @@ import { Campaign } from '../../inferfaces/campaign';
 })
 export class UpdateCampaignModalComponent {
   @Input() visible: any = false;
-  campaign:Campaign
+  @Input() campaignOld: Campaign;
+  @Input() campaignNew: Campaign;
 
-  constructor(){
-    this.campaign = {
-      campaignName: "",
-      campaignDesc: "",
-      campaignRate: 0,
-      createdAt: new Date()
+  updateCampaign(event: Event, campaign: Campaign): void {
+    let campaigns: Campaign[] = <Campaign[]>(
+      JSON.parse(<string>localStorage.getItem('campaigns'))
+    );
+    for (let [index, campaignToChange] of campaigns.entries()) {
+      if (this.campaignOld.campaignName === campaignToChange.campaignName) {
+        campaigns[index] = this.campaignNew;
+        localStorage.setItem('campaigns', JSON.stringify(campaigns));
+      }
     }
-  }
-  
-  updateCampaign(){
+    console.log(this.visible);
+    this.visible = !this.visible;
+    console.log(this.visible);
   }
 }

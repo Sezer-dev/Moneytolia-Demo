@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { Campaign } from '../inferfaces/campaign';
 
 @Component({
   selector: 'app-campaign-list',
   templateUrl: './campaign-list.component.html',
-  styleUrls: ['./campaign-list.component.css']
+  styleUrls: ['./campaign-list.component.css'],
 })
 export class CampaignListComponent implements OnInit {
-  campaigns: any[] = [];
-  searchKeyword: string = '';
-  sortBy: string = '';
-  showModal:any = false
+  campaigns: Campaign[];
+  searchKeyword: string = "";
+  sortBy: string = "";
+  showModal: any = false;
+  campaignOld:Campaign;
+  campaignNew:Campaign;
 
   constructor() {}
 
@@ -38,11 +41,10 @@ export class CampaignListComponent implements OnInit {
     }
   }
 
-  updateCampaign(campaignToUpdate: any): void {
-    this.showModal = true
-    for (let campaign of this.campaigns) {
-      if (campaign.campaignName === campaignToUpdate.campaignName) campaign;
-    }
+  showModalChange(campaign: Campaign) {
+    this.showModal = true;
+    this.campaignOld = {...campaign}
+    this.campaignNew = campaign
   }
 
   deleteCampaign(campaignToUpdate: any): void {
