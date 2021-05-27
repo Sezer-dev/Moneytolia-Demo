@@ -1,0 +1,20 @@
+<div class="textarea-form-container">
+  <div class="textarea-form-wrapper">
+    <input
+      type="text"
+      [value]="inputValue"
+      placeholder="Enter a campaign name"
+      [(ngModel)]="inputValue"
+      (ngModelChange)="onInputChange($event)"
+    />
+    <textarea
+      name="description"
+      cols="30"
+      rows="10"
+      placeholder="Enter a campaign description"
+      [(ngModel)]="textareaValue"
+      (ngModelChange)="onTextareaChange($event)"
+    ></textarea>
+    <app-button [callToAction]="buttonCallToAction" (onClick)="clickEvent($event)"></app-button>
+  </div>
+</div>
