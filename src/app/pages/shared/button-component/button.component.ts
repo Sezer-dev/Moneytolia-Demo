@@ -6,13 +6,12 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./button.component.css'],
 })
 export class ButtonComponent {
-  @Input() clickCallback: Function;
   @Input() callToAction: string;
-  @Output() click = new EventEmitter<MouseEvent>();
+  @Output() onClick:EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 
   constructor() {}
 
-  onClick(event:MouseEvent) {
-    this.click.emit(event);
+  clickEvent(event?:MouseEvent):void {
+    this.onClick.emit(event);
   }
 }
