@@ -1,4 +1,4 @@
-<div class="modal-overlay" *ngIf="visible" >
+<div class="modal-overlay" *ngIf="visible" (click)="hideIt()" >
   <textarea-form-component
     [(inputValue)]="campaignNew.campaignName"
     [(textareaValue)]="campaignNew.campaignDesc"

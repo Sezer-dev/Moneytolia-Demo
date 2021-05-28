@@ -10,8 +10,10 @@ export class UpdateCampaignModalComponent {
   @Input() visible: any = false;
   @Input() campaignOld: Campaign;
   @Input() campaignNew: Campaign;
+  @Output() hideModal:EventEmitter<any> = new EventEmitter<any>()
 
   updateCampaign(event: Event, campaign: Campaign): void {
+    this.hideModal.emit()
     let campaigns: Campaign[] = <Campaign[]>(
       JSON.parse(<string>localStorage.getItem('campaigns'))
     );
@@ -21,8 +23,8 @@ export class UpdateCampaignModalComponent {
         localStorage.setItem('campaigns', JSON.stringify(campaigns));
       }
     }
-    console.log(this.visible);
-    this.visible = !this.visible;
-    console.log(this.visible);
+  }
+  hideIt(){
+    this.hideModal.emit()
   }
 }
