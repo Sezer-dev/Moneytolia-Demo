@@ -47,6 +47,10 @@ export class CampaignListComponent implements OnInit {
     this.campaignNew = campaign
   }
 
+  hideModal(){
+    this.showModal = false
+  }
+
   deleteCampaign(campaignToUpdate: any): void {
     this.campaigns = this.campaigns.filter((campaign) => {
       return campaign !== campaignToUpdate;

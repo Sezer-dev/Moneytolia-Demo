@@ -25,3 +25,16 @@
     align-items: center;
     justify-content: center;
 }
+
+.campaign-description {
+    word-wrap: break-word;
+}
+
+.campaign-name {
+    display: flex;
+    align-items: center;
+}
+
+.campaign-name span {
+    width: 12px;
+}
